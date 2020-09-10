@@ -1,7 +1,7 @@
 # Social Networking Kata
 Credits to [Sandro Mancuso](https://twitter.com/sandromancuso) and [Samir Talwar](https://twitter.com/SamirTalwar) for the [original idea](http://monospacedmonologues.com/post/49250842364/the-social-networking-kata).
 
-Implement a console-based social networking application (similar to Twitter) satisfying the scenarios below.
+Implement a REST API based social networking application (similar to Twitter) satisfying the scenarios below.
 
 ### Scenarios
 
@@ -36,14 +36,13 @@ Implement a console-based social networking application (similar to Twitter) sat
 
 ### General requirements
 
-- Application must use the console for input and output;
-- User submits commands to the application:
-    - posting: \<user name> -> \<message>
-    - reading: \<user name>
-    - following: \<user name> follows \<another user>
-    - wall: \<user name> wall
-- Don't worry about handling any exceptions or invalid commands. Assume that the user will always type the correct commands. Just focus on the sunny day scenarios.
-- "posting:", "reading:", "following:" and "wall:" are not part of the command. All commands start with the user name.
+- Application must respond to these requests;
+- User submits requests to the application:
+    - posting: /post, body: { "username": "alice", "message" "I love the weather today" }
+    - reading: /read?username=alice
+    - following: /follow, body: { "follower": "alice", "following": "bob" }
+    - wall: /wall?username=alice
+- Don't worry about handling any exceptions or invalid resources. Assume that the user will always send the correct request and params. Just focus on the sunny day scenarios.
 - Use whatever language and frameworks you want. Use something that you know well.
 - Provide a README with instructions on how to compile and run the application.
 - You must release your work with an OSI-approved open source license of your choice.
